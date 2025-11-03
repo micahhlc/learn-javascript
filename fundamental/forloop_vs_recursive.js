@@ -6,6 +6,16 @@ function powerLoop(x, n) {
   return result;
 }
 
+/*
+Illustrate how recursive work. 
+Recursive is considered less efficient 
+
+power(2, 3)
+→ 2 * power(2, 2)
+→ 2 * (2 * power(2, 1))
+→ 2 * (2 * (2 * power(2, 0)))
+→ 2 * (2 * (2 * 1)) = 8
+*/
 function powerRecursive(x, n) {
   if (n === 0) return 1;
   return x * powerRecursive(x, n - 1);
