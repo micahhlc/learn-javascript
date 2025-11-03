@@ -34,7 +34,7 @@ let person: { name: string; birthday: number[]; hobbies: string[] } = {
 console.log(person);
 
 // better to use interface.
-
+// better to use class.
 type Person = {
   fName: string;
   lName: string;
