@@ -72,3 +72,16 @@ console.log(isNaN('str')); // true, because isNaN converts string "str" into a n
 
 console.log((6.35).toFixed(20));
 console.log(Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(rounded) -> 6.4
+
+console.log(Number.MAX_SAFE_INTEGER);
+//> 9007199254740991
+
+console.log(Number.MAX_SAFE_INTEGER + 1);
+//> 9007199254740992  (Still safe)
+
+console.log(Number.MAX_SAFE_INTEGER + 2);
+//> 9007199254740992  (Wrong! Loss of precision)
+
+// Your example:
+console.log(9_999_999_999_999_999); //e15
+//> 10000000000000000 (Wrong! Rounded up)

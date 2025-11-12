@@ -9,6 +9,9 @@
 https://en.wikipedia.org/wiki/IEEE_754
 use binary 64bits. max 1.80×10308 min 2.23×10−308
 
+##  Max number js and prgramming langs on IEEE_754 can take. 
+Number.MAX_SAFE_INTEGER which is 9,007,199,254,740,991 ((or 2**53 −1). e16 
+
 
 ## A 64-bit (double-precision) number is divided into three parts:
 
