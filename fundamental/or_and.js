@@ -7,7 +7,7 @@ true || alert("not printed");
 false || alert("printed");
 */
 
-console.log('' || null || undefined || 1 || 'no matter what this field will not be checked.'); //1 is returned
+console.log('' || null || undefined || 1 || 'no matter what this field here will not be checked.'); //1 is returned
 
 console.log(console.log(1) || 2 || console.log(3));
 
