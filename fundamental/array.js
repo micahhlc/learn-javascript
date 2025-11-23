@@ -1,3 +1,21 @@
+// const arr_num = [22, 15, 5];
+// const arr_str = ['t', 'e', 's', 't'];
+// const users = [
+//   { id: 1, name: 'John', age: 16 },
+//   { id: 2, name: 'Pete', age: 20 },
+//   { id: 3, name: 'Mary', age: 23 },
+//   { id: 4, name: 'John', age: 30 },
+// ];
+// const names = 'Bilbo, Gandalf, Nazgul';
+// let army = {
+//   minAge: 18,
+//   maxAge: 27,
+//   canJoin(user) {
+//     return user.age >= this.minAge && user.age < this.maxAge;
+//   },
+// };
+// let arr1, arr2, user, someusers, someusers_map, result, soliders;
+
 /* 
 The input is an array of numbers, e.g. arr = [1, -2, 3, 4, -9, 6].
 The task is: find the contiguous subarray of arr with the maximal sum of items.
@@ -37,95 +55,71 @@ console.log(getMaxSubSum([-1, 2, 3, -9])); // 5
 console.log(getMaxSubSum([-1, 2, 3, -9, 11])); // 11
 console.log(getMaxSubSum([-2, -1, 1, 2])); // 3
 console.log(getMaxSubSum([1, 2, 3])); // 6
-console.log(getMaxSubSum([100, -9, 2, -3, 5])); // 100 */
-/* 
-let arr = ['I', 'study', 'JavaScript', 'right', 'now'];
-console.log(arr, arr.length);
-// remove 3 first elements and replace them with another
-arr.splice(1, 1, 'really', 'am', 'studying');
+console.log(getMaxSubSum([100, -9, 2, -3, 5])); // 100 
+*/
 
-console.log(arr, arr.length); // now ["Let's", "dance", "right", "now"]
- */
-const arr_num = [22, 15, 5];
-const arr_str = ['t', 'e', 's', 't'];
-const users = [
-  { id: 1, name: 'John', age: 16 },
-  { id: 2, name: 'Pete', age: 20 },
-  { id: 3, name: 'Mary', age: 23 },
-  { id: 4, name: 'John', age: 30 },
-];
-const names = 'Bilbo, Gandalf, Nazgul';
-let army = {
-  minAge: 18,
-  maxAge: 27,
-  canJoin(user) {
-    return user.age >= this.minAge && user.age < this.maxAge;
-  },
-};
-let arr1, arr2, user, someusers, someusers_map, result, soliders;
-
-/* 
+console.log('-- splice() sort() slice() forEach() --');
+/* splice()
 use splice() to manipulate array. 
 from index -1 (one step from the end)
 delete 0 elements,
 then insert 3 and 4
 // arr.slice([start], [end]) return an new array
 */
-/* console.log('-- splice() and sort() --');
-arr_num.splice(-1, 0, 3, 4);
-console.log(arr_num); // 1,2,3,4,5
-console.log(arr_num.sort()); // by default treat as strings utf16.
-console.log(arr_num.sort((a, b) => a - b)); // if a - b is negative, a is sorted in the front. */
-/* 
+
+// arr_num.splice(-1, 0, 3, 4);
+// console.log(arr_num); // 1,2,3,4,5
+// console.log(arr_num.sort()); // by default treat as strings utf16.
+// console.log(arr_num.sort((a, b) => a - b)); // if a - b is negative, a is sorted in the front.
+
+/* slice() form new array. 
 arr1 = arr_str.slice(1, 3); // e,s (copy from 1 to 3)
 arr2 = arr_str.slice(-2); // s,t (copy from -2 till the end)
-console.log(arr_str, arr1, arr2); */
-/* 
-console.log('-- forEach() --');
-arr_str.forEach(console.log);
+console.log(arr_str, arr1, arr2); 
+*/
+
+/* forEach() work on existing array 
 arr_str.forEach((item, index, array) => {
   console.log(`${item} is at index ${index} in ${array}`);
 });
- */
-/*
-The methods arr.indexOf and arr.includes have the similar syntax and do essentially the same as their string counterparts, but operate on items instead of characters:
 */
-/* console.log('--indexOf() includes()--');
-console.log(arr_str.indexOf('s'));
-console.log(arr_str.includes('s'));
 
-console.log('-- find() findIndex() findLastIndex() --');
- */
-/*
+console.log('-- indexOf() includes() find()--');
+
+/* find() 
 let result = arr.find(function(item, index, array) {
 if true is returned, item is returned and iteration is stopped
 for falsy scenario returns undefined
 });
 */
+
 /* 
 user = users.find((item) => item.id == 1);
 console.log(user);
 console.log(users.findIndex((user) => user.name == 'John')); // 0
 console.log(users.findLastIndex((user) => user.name == 'John')); // 3
  */
-/* 
+
+console.log('-- filter() --');
+/* filter() return new array 
 let results = arr.filter(function(item, index, array) {
   // if true item is pushed to results and the iteration continues
   // returns empty array if nothing found
 }); 
 */
+
 /* 
-console.log('-- filter() --');
 someusers = users.filter((item) => item.name.includes('o'));
 console.log(someusers); */
 
-/* 
+console.log('-- map() for of--');
+/* map() 
 let result = arr.map(function(item, index, array) {
   // returns the new value instead of item
 }); 
 */
+
 /* 
-console.log('-- map() --');
 someusers_map = users.map((item) => item.name.length);
 console.log('someusers name.length: ' + someusers_map);
  */
@@ -137,6 +131,8 @@ for (let name of arr) {
   console.log(`A message to ${name}.`); // A message to Bilbo  (and other names)
 }
  */
+
+console.log('-- reduce() --');
 /*
 When we need to iterate over an array – we can use forEach, for or for..of.
 When we need to iterate and return the data for each element – we can use map.
@@ -153,35 +149,34 @@ item – is the current array item.
 index – is its position.
 array – is the array.
 */
+
 /* 
-console.log('-- reduce() --');
 result = arr_num.reduce((sum, current) => sum + current, 0);
 console.log(`${arr_num} is being handled through reduce() with result: ${result}`);
  */
+
+console.log('-- Array.isArray() --');
 /* 
 Check if Array type
 Array.isArray()
 return true or false
 */
+
 /* 
-console.log('-- Array.isArray() --');
 console.log('checking isArray(): ' + arr_str + ': ' + Array.isArray(arr_str));
 console.log('checking isArray(): ' + users[1] + ': ' + Array.isArray(users[1]));
  */
+
+console.log('-- examples --');
 /* 
-example usage
 
-*/
-
-// find users, for who army.canJoin returns true
-// let soldiers = users.filter(army.canJoin, army);
-/* console.log('-- example --');
 soldiers = users.filter((u) => army.canJoin(u));
 
 console.log('soldiers.length: ' + soldiers.length); // 2
 console.log('soliders age: ' + soldiers[0].age); // 20
 console.log('soliders age: ' + soldiers[1].age); // 23
  */
+
 /* 
 Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
 
@@ -226,6 +221,7 @@ function camelize(str) {
 // console.log(camelize('list-style-image'));
 // console.log(camelize('-webkit-transition'));
 
+console.log('-- Filter range --');
 /* 
 Filter range
 
@@ -237,8 +233,6 @@ let filtered = filterRange(arr, 1, 4);
 alert( filtered ); // 3,1 (matching values)
 alert( arr ); // 5,3,8,1 (not modified)
 */
-
-console.log('-- Filter range --');
 
 function filterRange(arr, a, b) {
   let filterArr = [];
@@ -298,22 +292,14 @@ function filterRangeInPlace_for(arr, a, b) {
 // console.log(sorted); // CSS, HTML, JavaScript
 // console.log(arr); // HTML, JavaScript, CSS (no changes)
 
+console.log('-- calculator --');
+
 class Calculator_simple {
   calculate(str) {
     return Function(`return ${str}`)();
   }
   addMethod(opr, func) {}
 }
-let calc = new Calculator();
-console.log(calc.calculate('3 + 7'));
-
-let powerCalc = new Calculator();
-powerCalc.addMethod('*', (a, b) => a * b);
-powerCalc.addMethod('/', (a, b) => a / b);
-powerCalc.addMethod('**', (a, b) => a ** b);
-
-result = powerCalc.calculate('2 ** 3');
-console.log(result); // 8
 
 function Calculator() {
   this.methods = {
@@ -338,3 +324,161 @@ function Calculator() {
     this.methods[name] = func;
   };
 }
+
+class Calculator_micah {
+  constructor() {
+    this.methods = {
+      '-': (a, b) => a - b,
+      '+': (a, b) => a + b,
+    };
+  }
+  addMethod(opr, func) {
+    this.methods[opr] = func;
+  }
+  calculate(str) {
+    let arr = str.split(' ');
+    const a = +arr[0];
+    const opr = arr[1];
+    const b = +arr[2];
+
+    return this.methods[opr](a, b);
+  }
+}
+
+/* 
+a^b = c
+a = c^(1/b)
+b = log c / log a
+
+b = log(c) / log(a)
+b = log10(c) / log10(a)
+b = log₂(c) / log₂(a)
+b = ln(c) / ln(a)
+
+a^b = c
+log(a^b) = log(c)
+b * log(a) = log(c)
+b = log(c) / log(a)
+
+*/
+
+// let calc_m = new Calculator_micah();
+// calc_m.addMethod('*', (a, b) => a * b);
+// calc_m.addMethod('/', (a, b) => a / b);
+// calc_m.addMethod('**', (a, b) => a ** b);
+// calc_m.addMethod('root', (c, b) => c ** (1 / b));
+// calc_m.addMethod('log', (c, a) => Math.log(c) / Math.log(a));
+// console.log(calc_m.calculate('2 ** 8'));
+// console.log(calc_m.calculate('256 root 8'));
+// console.log(calc_m.calculate('256 log 2'));
+
+console.log('-- map to objects --');
+let john = { name: 'John', surname: 'Smith', id: 1 };
+let pete = { name: 'Pete', surname: 'Hunt', id: 2 };
+let mary = { name: 'Mary', surname: 'Key', id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped =
+  /* As we remember, there are two arrow functions: without body value => expr and with body value => {...}.
+Here JavaScript would treat { as the start of function body, not the start of the object. The workaround is to wrap them in the “normal” brackets:
+ */
+  users.map((v, i) => ({
+    fullName: v.name + ' ' + v.surname,
+    id: v.id,
+  }));
+
+console.log(usersMapped);
+
+console.log('-- sort usage by age --');
+/* 
+let pete = { name: 'Pete', age: 27 };
+let andrew = { name: 'Andrew', age: 19 };
+let bigJames = { name: 'Big James', age: 19 };
+let john = { name: 'John', age: 16 };
+let philip = { name: 'Philip', age: 18 };
+let nathanael = { name: 'Nathanael', age: 25 };
+let matthew = { name: 'Matthew', age: 25 };
+let thomas = { name: 'Thomas', age: 16 };
+let smallJames = { name: 'Small James', age: 17 };
+let thaddaeus = { name: 'Thaddaeus', age: 18 };
+let simonZealot = { name: 'Simon the Zealot', age: 24 };
+let judasIscariot = { name: 'Judas Iscariot', age: 22 };
+
+let arr = [
+  pete,
+  andrew,
+  bigJames,
+  john,
+  philip,
+  nathanael,
+  matthew,
+  thomas,
+  smallJames,
+  thaddaeus,
+  simonZealot,
+  judasIscariot,
+];
+
+function sortByAge(arr) {
+  arr.sort((a, b) => a.age - b.age);
+}
+console.log(arr);
+sortByAge(arr);
+
+// now: [john, mary, pete]
+// alert(arr[0].name); // John
+// alert(arr[1].name); // Mary
+// alert(arr[2].name); // Pete
+console.log(arr);
+ */
+
+console.log('-- get avg age --');
+
+// let pete = { name: 'Pete', age: 30 };
+// let andrew = { name: 'Andrew', age: 20 };
+// let bigJames = { name: 'Big James', age: 22 };
+// let john = { name: 'John', age: 16 };
+// let philip = { name: 'Philip', age: 18 };
+// let nathanael = { name: 'Nathanael', age: 25 };
+// let matthew = { name: 'Matthew', age: 25 };
+// let thomas = { name: 'Thomas', age: 16 };
+// let smallJames = { name: 'Small James', age: 17 };
+// let thaddaeus = { name: 'Thaddaeus', age: 18 };
+// let simonZealot = { name: 'Simon the Zealot', age: 24 };
+// let judasIscariot = { name: 'Judas Iscariot', age: 22 };
+
+// let arr = [pete, andrew, bigJames, john];
+
+// function getAverageAge(arr) {
+//   let result = arr.reduce((prevValue, current) => prevValue + current.age, 0);
+//   return result / arr.length;
+// }
+
+// console.log(getAverageAge(arr)); // (30 + 20 + 22 + 16) / 4 = 22
+
+console.log('-- create keyed object from array --');
+// let users = [
+//   { id: 'john', name: 'John Smith', age: 20 },
+//   { id: 'ann', name: 'Ann Smith', age: 24 },
+//   { id: 'pete', name: 'Pete Peterson', age: 31 },
+// ];
+
+function groupById(arr) {
+  return arr.reduce((obj, v) => {
+    obj[v.id] = v;
+    return obj;
+  }, {});
+}
+
+let usersById = groupById(users);
+console.log(usersById);
+/*
+// after the call we should have:
+
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+*/
