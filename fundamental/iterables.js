@@ -84,3 +84,16 @@ for (let v of range_a) {
 object range reset the iterator properly. 
 object range_a reuse sum and index. 
 */
+
+/* 
+There’s a universal method Array.from that takes an iterable or array-like value and makes a “real” Array from it. Then we can call array methods on it.
+*/
+
+let arrayLike = {
+  0: 'Hello',
+  1: 'World',
+  length: 2,
+};
+
+let arr = Array.from(arrayLike); // (*)
+console.log(arr.pop()); // World (method works)
