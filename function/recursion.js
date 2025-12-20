@@ -101,3 +101,41 @@ Action: This function is finished. It returns the value 16 to the original code 
 Final Result: 16
 
 */
+
+/* 
+Recursion is good for unstructured objects that cannot use for loop.
+
+In order to get all salary of the object, there are two possible cases:
+1. it’s a “simple” department with an array of people – then we can sum the salaries in a simple loop.
+2. it’s an object with N subdepartments – then we can make N recursive calls to get the sum for each of the subdeps and combine the results.
+
+Note that the code uses smart features that we’ve covered before:
+
+Method arr.reduce explained in the chapter Array methods to get the sum of the array.
+Loop for(val of Object.values(obj)) to iterate over object values: Object.values returns an array of them.
+
+*/
+
+
+let company = { // the same object, compressed for brevity
+  sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 1600 }],
+  development: {
+    sites: [{ name: 'Peter', salary: 2000 }, { name: 'Alex', salary: 1800 }],
+    internals: [{ name: 'Jack', salary: 1300 }]
+  }
+};
+
+// The function to do the job
+function sumSalaries(department) {
+  if (Array.isArray(department)) { // case (1)
+    return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+  } else { // case (2)
+    let sum = 0;
+    for (let subdep of Object.values(department)) {
+      sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+    }
+    return sum;
+  }
+}
+
+console.log(sumSalaries(company)); // 7700
